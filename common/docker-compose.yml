@@ -1,0 +1,22 @@
+version: '3'
+services:
+  shadowsocks:
+    build: ./shadowsocks
+    container_name: shadowsocks
+    environment:
+      - SERVER=
+      - SERVER_PORT=
+      - LOCAL_PORT=
+      - PASSWORD=
+      - TIMEOUT=60
+      - METHOD=aes-256-cfb
+    expose:
+      - 2000
+    ports:
+      - 2000:2000
+    networks:
+      - default
+      - common
+networks:
+  common:
+    external: true
